@@ -6,10 +6,11 @@
         {
             int[] v1 = new int[100];
 
-            Thread t1 = new Thread(() => MyThread.Thread1(ref v1, 0, 25));
-            Thread t2 = new Thread(() => MyThread.Thread1(ref v1, 25, 50));
-            Thread t3 = new Thread(() => MyThread.Thread1(ref v1, 50, 75));
-            Thread t4 = new Thread(() => MyThread.Thread1(ref v1, 75, 100));
+            Thread t1 = new Thread(() => MyThread.CargarVector(ref v1, 0, 25));
+            Thread t2 = new Thread(() => MyThread.CargarVector(ref v1, 25, 50));
+            Thread t3 = new Thread(() => MyThread.CargarVector(ref v1, 50, 75));
+            Thread t4 = new Thread(() => MyThread.CargarVector(ref v1, 75, 100));
+            
             t1.Start();
             t2.Start();
             t3.Start();
@@ -26,7 +27,7 @@
 
     public class MyThread
     {
-        public static void Thread1(ref int[] a, int posInicial, int posFinal)
+        public static void CargarVector(ref int[] a, int posInicial, int posFinal)
         {
             Random r = new Random();
             for (int i = posInicial; i < posFinal; i++)
